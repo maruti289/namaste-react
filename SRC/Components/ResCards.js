@@ -1,6 +1,6 @@
 import { CDN_URL } from "../Utils/Constants";
 const ResCards = ({ resData }) => {
-  const { name, cuisines, deliveryTime, cloudinaryImageId, avgRating } =
+  const { name, cuisines, deliveryTime, cloudinaryImageId, avgRating, sla } =
     resData.data;
 
   return (
@@ -13,7 +13,7 @@ const ResCards = ({ resData }) => {
 
       <p>{name}</p>
       <p>{cuisines.join(", ")}</p>
-      <p>{deliveryTime} Min</p>
+      <p>{sla.deliveryTime} Min</p>
       <p>{avgRating}</p>
     </div>
   );

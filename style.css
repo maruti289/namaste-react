@@ -42,4 +42,11 @@ div > ul > li {
 }
 .ResCard {
   padding: 10px;
+  width: 250px;
+}
+.shimContain {
+  height: 100px;
+  width: 150px;
+  color: #b2afaf;
+  border: 2px solid #b2afaf;
 }
