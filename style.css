@@ -50,3 +50,11 @@ div > ul > li {
   color: #b2afaf;
   border: 2px solid #b2afaf;
 }
+.UserFunClass {
+  border: 2px solid black;
+  width: 500px;
+}
+.ClassCompo {
+  border: 2px solid black;
+  width: 500px;
+}
