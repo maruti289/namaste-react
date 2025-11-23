@@ -5,11 +5,15 @@ class UserClass extends React.Component {
     super(props);
     //We will use the this.state to create the state variable which takes an object
     this.state = {
-      count: 0,
-      firstName: " ",
-      lastName: "Patil",
+      id: 0,
+      name: " ",
+      followers: null,
+      url: "http//dummy.com",
+      location: "Belgium",
+      following: null,
+      avatar_url: "http://photo.com",
     };
-    console.log(this.props.name + " Constructor ");
+    // console.log(this.props.name + " Constructor ");
   }
   //2.This is the modern way creating the state varibale in the Class based component without the constructor
   // state = {
@@ -18,11 +22,15 @@ class UserClass extends React.Component {
   //   lastName: "Patil",
   // };
 
-  componentDidMount() {
-    console.log(this.props.name + " component did mount called");
+  async componentDidMount() {
+    const userData = await fetch("https://api.github.com/users/maruti289");
+    const jsonData = await userData.json();
+
+    this.setState(jsonData);
   }
   render() {
-    console.log(this.props.name + " Render ");
+    const { avatar_url, name, location, following, id } = this.props;
+    // console.log(this.props.name + " Render ");
     return (
       <div className="ClassCompo">
         <h1>Class based Component</h1>
@@ -36,7 +44,7 @@ class UserClass extends React.Component {
           Click Me
         </button> */}
         {/* If we are using any state varibale then we need to use it as a this.state */}
-        <h1>Count: {this.state.count}</h1>
+        {/* <h1>Count: {this.state.count}</h1>
         <button
           onClick={() => {
             // setState always takes an object not an number
@@ -49,11 +57,12 @@ class UserClass extends React.Component {
           }}
         >
           Change The Name
-        </button>
-        <h1>{this.props.name}</h1>
-        <h1>{this.state.firstName}</h1>
-        <h1>{this.props.role}</h1>
-        <h1>{this.props.company}</h1>
+        </button> */}
+        <img src={this.state.avatar_url}></img>
+        <h1>{this.state.name}</h1>
+        <h1>{this.state.location}</h1>
+        <h1>{this.state.following}</h1>
+        <h1>{this.state.id}</h1>
       </div>
     );
   }
